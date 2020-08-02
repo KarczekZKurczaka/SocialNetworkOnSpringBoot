@@ -1,24 +1,15 @@
 package com.brunner.social.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
+import javax.persistence.Entity;
 import java.util.List;
 
 @Entity
 public class User {
 
-    @ElementCollection(fetch = FetchType.EAGER)
     List<Role> roles;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Size(min = 4, max = 255)
-    @Column(unique = true, nullable = false)
     private String username;
-    @Column(unique = true, nullable = false)
     private String email;
-    @Size(min = 8)
-    private String password;
 
     public Integer getId() {
         return id;
@@ -42,14 +33,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public List<Role> getRoles() {
