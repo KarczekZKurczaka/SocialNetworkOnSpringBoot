@@ -6,10 +6,29 @@ import javax.persistence.Entity;
 public class UserProfile {
     private Long Id;
     private String about;
-    private String profilePicUrl;
-    private boolean gender;
-    private String location;
-    private String interests;
-    private String languages;
     private User user;
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
