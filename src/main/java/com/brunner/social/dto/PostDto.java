@@ -15,4 +15,5 @@ public class PostDto {
     String title;
     String description;
     String content;
+    Long userId;
 }

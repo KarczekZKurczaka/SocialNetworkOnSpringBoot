@@ -17,7 +17,7 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
     @Override
     public List<PostDto> findByUserId(Long userId) {
         List<PostDto> resultList;
-        Query query = entityManager.createNativeQuery("select p.id, u.id as userId from posts p,user u where p.user_id=u.id and p.user_id=?", "findAllDataMapping");
+        Query query = entityManager.createNativeQuery("select p.id, p.title, p.description, p.content, u.id as userId from posts p,user u where p.user_id=u.id and p.user_id=?", "findAllDataMapping");
         query.setParameter(1, userId);
         resultList = query.getResultList();
         return resultList;

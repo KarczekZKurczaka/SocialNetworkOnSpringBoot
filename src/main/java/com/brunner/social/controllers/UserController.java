@@ -4,7 +4,6 @@ import com.brunner.social.RestResponse;
 import com.brunner.social.dto.PostDto;
 import com.brunner.social.exception.CustomException;
 import com.brunner.social.exception.ResourceNotFoundException;
-import com.brunner.social.model.Post;
 import com.brunner.social.model.User;
 import com.brunner.social.repository.PostRepository;
 import com.brunner.social.repository.UserRepository;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -52,7 +50,6 @@ public class UserController {
     @GetMapping("/users/getall")
     public List<PostDto> getAllPosts(@Valid @RequestParam("userId") Long userId) {
 
-        List<Post> posts = new ArrayList<>();
         return postRepository.findByUserId(userId);
     }
 }
