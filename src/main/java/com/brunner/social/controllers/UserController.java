@@ -8,6 +8,7 @@ import com.brunner.social.model.User;
 import com.brunner.social.repository.PostRepository;
 import com.brunner.social.repository.UserRepository;
 import com.brunner.social.service.UserService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @ApiOperation(value = "Create a user.")
     @PostMapping("/users/signup")
     public RestResponse createUser(@Valid @RequestBody User user) {
 
@@ -36,6 +38,7 @@ public class UserController {
         }
     }
 
+    @ApiOperation(value = "Login the user by e-mail.")
     @GetMapping("/users/signin")
     public RestResponse getUser(@Valid @RequestParam("email") String email) {
 
@@ -46,7 +49,7 @@ public class UserController {
         }
     }
 
-
+    @ApiOperation(value = "Get all posts of the user.")
     @GetMapping("/users/getall")
     public List<PostDto> getAllPosts(@Valid @RequestParam("userId") Long userId) {
 
